@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Analyzer</title>
+</head>
+<body>
+<h1 style="text-align:center;">Welcome to text analyzer, please enter your text</h1>
+
+<form action="/analyze" method="post"> {% csrf_token %}
+<textarea name="text" style="width:100%;height:50vh;"></textarea><br>
+    <input type="checkbox" class="checkoption" name="removepunc">Remove Punctuations<br>
+        <input type="checkbox" class="checkoption" name="fullcaps">FULL CAPS<br>
+        <input type="checkbox" class="checkoption" name="newlineremove">Remove new line<br>
+     <input type="checkbox" class="checkoption" name="spaceremover">Remove spaces<br>
+
+    <button type="submit">Analyze Text</button>
+    </form>
+<!--let users select only one checkbox per time to avoid any overrides-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script type="text/javascript">
+   $(document).ready(function(){
+
+      $('.checkoption').click(function() {
+         $('.checkoption').not(this).prop('checked', false);
+      });
+
+   });
+   </script>
+</body>
+</html>
